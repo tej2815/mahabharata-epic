@@ -1,0 +1,777 @@
+/* ========================================
+   Mahabharata Epic Website - Premium Styles
+   Dark theme with divine accents
+   ======================================== */
+
+/* ========== CSS Reset & Base ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Color Palette */
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #1a1a2e;
+    --bg-card: rgba(26, 26, 46, 0.6);
+    
+    --divine-gold: #ffb627;
+    --saffron: #ff6b35;
+    --celestial-blue: #4fc3f7;
+    --cosmic-purple: #9c27b0;
+    
+    --text-primary: #e8e8e8;
+    --text-secondary: #c0c0c0;
+    --text-muted: #888;
+    
+    /* Typography */
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+    
+    /* Effects */
+    --glow-gold: 0 0 20px rgba(255, 182, 39, 0.4);
+    --glow-blue: 0 0 20px rgba(79, 195, 247, 0.4);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ========== Preloader ========== */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content {
+    text-align: center;
+}
+
+.om-symbol {
+    font-size: 5rem;
+    color: var(--divine-gold);
+    animation: pulse 2s infinite;
+    text-shadow: var(--glow-gold);
+}
+
+.loading-text {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-top: var(--spacing-md);
+    letter-spacing: 2px;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* ========== Navigation ========== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 182, 39, 0.1);
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.navbar.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--spacing-sm) var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--divine-gold);
+    text-shadow: var(--glow-gold);
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--divine-gold), var(--saffron));
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: var(--divine-gold);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ========== Hero Section ========== */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(10, 10, 15, 0.3) 0%,
+        rgba(10, 10, 15, 0.7) 100%
+    );
+    z-index: 2;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8);
+}
+
+.parallax-image {
+    transform: scale(1.1);
+    transition: transform 0.5s ease-out;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+.hero-title {
+    margin-bottom: var(--spacing-md);
+}
+
+.title-sanskrit {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--divine-gold), var(--saffron));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 40px rgba(255, 182, 39, 0.5);
+    margin-bottom: var(--spacing-sm);
+}
+
+.title-english {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    font-weight: 800;
+    letter-spacing: 8px;
+    color: var(--text-primary);
+    text-shadow: 0 0 60px rgba(79, 195, 247, 0.6);
+}
+
+.hero-subtitle {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--celestial-blue);
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: 3px;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: linear-gradient(135deg, var(--divine-gold), var(--saffron));
+    color: var(--bg-primary);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    transition: var(--transition);
+    box-shadow: 0 10px 30px rgba(255, 182, 39, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 182, 39, 0.5);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.scroll-arrow {
+    width: 30px;
+    height: 50px;
+    border: 2px solid var(--divine-gold);
+    border-radius: 20px;
+    position: relative;
+}
+
+.scroll-arrow::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--divine-gold);
+    border-radius: 50%;
+    animation: scroll-down 2s infinite;
+}
+
+@keyframes scroll-down {
+    0% { top: 10px; opacity: 1; }
+    100% { top: 30px; opacity: 0; }
+}
+
+/* ========== Fade-in Animations ========== */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========== Reveal on Scroll ========== */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========== Introduction Section ========== */
+.intro-section {
+    padding: var(--spacing-xl) 0;
+    background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
+}
+
+.intro-content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--divine-gold);
+    margin-bottom: var(--spacing-md);
+    text-shadow: var(--glow-gold);
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.highlight {
+    color: var(--celestial-blue);
+    font-weight: 600;
+}
+
+/* ========== Parvas Section ========== */
+.parvas-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-secondary);
+}
+
+.section-subtitle {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    letter-spacing: 2px;
+}
+
+.parva-card {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 182, 39, 0.1);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.parva-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 182, 39, 0.05) 0%, transparent 70%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.parva-card:hover::before {
+    opacity: 1;
+}
+
+.parva-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 182, 39, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), var(--glow-gold);
+}
+
+.parva-number {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    font-weight: 800;
+    color: rgba(255, 182, 39, 0.15);
+    line-height: 1;
+    min-width: 120px;
+    text-align: center;
+}
+
+.parva-content {
+    flex: 1;
+}
+
+.parva-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--divine-gold);
+    margin-bottom: var(--spacing-xs);
+}
+
+.parva-subtitle {
+    font-size: 1.2rem;
+    color: var(--celestial-blue);
+    margin-bottom: var(--spacing-md);
+    font-style: italic;
+}
+
+.parva-description {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.parva-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 182, 39, 0.15);
+}
+
+.meta-item {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Special highlight for Bhishma Parva (contains Gita) */
+.highlight-parva {
+    border: 2px solid var(--divine-gold);
+    background: linear-gradient(135deg, rgba(255, 182, 39, 0.08), rgba(79, 195, 247, 0.08));
+}
+
+.parva-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, var(--divine-gold), var(--saffron));
+    color: var(--bg-primary);
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-radius: 20px;
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.divine-text {
+    color: var(--celestial-blue);
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* ========== Family Tree Section ========== */
+.family-tree-section {
+    padding: var(--spacing-xl) 0;
+    background: linear-gradient(to bottom, var(--bg-secondary), var(--bg-primary));
+}
+
+.family-tree-container {
+    margin-top: var(--spacing-lg);
+}
+
+.tree-legend {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.legend-color.pandava {
+    background: linear-gradient(135deg, var(--celestial-blue), #2196F3);
+}
+
+.legend-color.kaurava {
+    background: linear-gradient(135deg, var(--saffron), #d32f2f);
+}
+
+.legend-color.divine {
+    background: linear-gradient(135deg, var(--divine-gold), var(--cosmic-purple));
+}
+
+.family-tree {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: rgba(26, 26, 46, 0.4);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 182, 39, 0.1);
+    overflow-x: auto;
+}
+
+.tree-generation {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.tree-branch {
+    flex: 1;
+    min-width: 300px;
+}
+
+.branch-label {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--divine-gold);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+}
+
+.branch-nodes {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.tree-node {
+    padding: var(--spacing-md);
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 2px solid rgba(255, 182, 39, 0.2);
+    min-width: 140px;
+    text-align: center;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.tree-node:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: var(--glow-gold);
+}
+
+.tree-node.pandava {
+    border-color: var(--celestial-blue);
+}
+
+.tree-node.pandava:hover {
+    box-shadow: var(--glow-blue);
+    border-color: var(--celestial-blue);
+}
+
+.tree-node.kaurava {
+    border-color: var(--saffron);
+}
+
+.tree-node.kaurava:hover {
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+    border-color: var(--saffron);
+}
+
+.tree-node.divine {
+    border-color: var(--divine-gold);
+    background: linear-gradient(135deg, rgba(255, 182, 39, 0.1), rgba(156, 39, 176, 0.1));
+}
+
+.tree-node.kaurava-others {
+    opacity: 0.7;
+}
+
+.node-name {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--divine-gold);
+    margin-bottom: var(--spacing-xs);
+}
+
+.node-title {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.tree-info {
+    margin-top: var(--spacing-lg);
+    text-align: center;
+}
+
+.tree-description {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ========== Footer ========== */
+.footer {
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+    background: var(--bg-primary);
+    border-top: 1px solid rgba(255, 182, 39, 0.1);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--divine-gold);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-subtitle {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--celestial-blue);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-text {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-verse {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 182, 39, 0.1);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 768px) {
+    .title-sanskrit {
+        font-size: 2rem;
+    }
+    
+    .title-english {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .parva-card {
+        flex-direction: column;
+        padding: var(--spacing-md);
+    }
+    
+    .parva-number {
+        font-size: 3rem;
+        min-width: auto;
+    }
+    
+    .parva-title {
+        font-size: 1.5rem;
+    }
+    
+    .nav-links {
+        gap: var(--spacing-sm);
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+    }
+    
+    .tree-generation {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .branch-nodes {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --spacing-lg: 2rem;
+        --spacing-xl: 3rem;
+    }
+    
+    .title-english {
+        font-size: 2rem;
+    }
+    
+    .cta-button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+}
